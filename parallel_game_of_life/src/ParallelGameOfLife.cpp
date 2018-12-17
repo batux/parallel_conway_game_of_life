@@ -78,8 +78,6 @@ void ParallelGameOfLife::run(int stepCount, bool initWithTestCase, bool runParal
 
 	this->init(initWithTestCase);
 
-	srand((int)time(0));
-
 	milliseconds startTimeInMillis = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
 	long startTimeAsLong = startTimeInMillis.count();
 
@@ -180,6 +178,7 @@ void ParallelGameOfLife::cloneCurrentCellGrid2NextCellGrid() {
 	for(int i=0; i < this->gridRow; i++) {
 		for(int j=0; j < this->gridColumn; j++) {
 			Cell *currentCell = this->currentCellGrid[i][j];
+			delete this->nextCellGrid[i][j];
 			this->nextCellGrid[i][j] = currentCell->clone();
 			//currentCell->~Cell();
 		}

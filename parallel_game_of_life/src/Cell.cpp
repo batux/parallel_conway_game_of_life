@@ -12,8 +12,7 @@ Cell::Cell() {
 }
 
 Cell::~Cell() {
-	//cout << "Cell deleted from memory!" << endl;
-	delete this;
+	cout << "Cell deleted from memory!" << endl;
 }
 
 int Cell::getState() {
